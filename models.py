@@ -10,6 +10,10 @@ from tagging.fields import TagField
 from tagging.models import Tag
 from urlparse import urlparse
 
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill, Adjust, SmartResize, ResizeToFit
+
+
 # Create your models here.
 if 'south' in settings.INSTALLED_APPS:
     from south.modelsinspector import add_introspection_rules
@@ -64,3 +68,98 @@ class CommonPost( models.Model ):
     def hostname( self ):
         o = urlparse( self.source )
         return o.hostname
+
+
+class CommonPostImage( models.Model ):
+    icon = ImageSpecField( [
+            Adjust( contrast = 1.2, sharpness = 1.1 ),
+            ResizeToFill( 50, 50 )
+        ],
+        image_field = 'image',
+#        format = 'JPEG',
+        options = {
+            'quality': 90,
+            'progressive':True,
+        },
+    )
+    x50 = ImageSpecField( [
+            Adjust( contrast = 1.2, sharpness = 1.1 ),
+            ResizeToFit( 50, 50 )
+        ],
+        image_field = 'image',
+#        format = 'JPEG',
+        options = {
+            'quality': 90,
+            'progressive':True,
+        },
+    )
+    x100 = ImageSpecField( [
+            Adjust( contrast = 1.2, sharpness = 1.1 ),
+            ResizeToFit( 100, 100 )
+        ],
+        image_field = 'image',
+#        format = 'JPEG',
+        options = {
+            'quality': 90,
+            'progressive':True,
+        }
+    )
+    thumbnail = ImageSpecField( [
+            Adjust( contrast = 1.2, sharpness = 1.1 ),
+            ResizeToFit( 150, 150 )
+        ],
+        image_field = 'image',
+#        format = 'JPEG',
+        options = {
+            'quality': 90,
+            'progressive':True,
+        }
+    )
+    x150 = ImageSpecField( [
+            Adjust( contrast = 1.2, sharpness = 1.1 ),
+            ResizeToFit( 150, 150 )
+        ],
+        image_field = 'image',
+        options = {
+            'quality': 90,
+            'progressive':True,
+        }
+    )
+    x250 = ImageSpecField( [
+            Adjust( contrast = 1.2, sharpness = 1.1 ),
+            ResizeToFit( 250, 250 )
+        ],
+        image_field = 'image',
+#        format = 'JPEG',
+        options = {
+            'quality': 90,
+            'progressive':True,
+        }
+    )
+    x450 = ImageSpecField( [
+            Adjust( contrast = 1.2, sharpness = 1.1 ),
+            ResizeToFit( 450, 450 )
+        ],
+        image_field = 'image',
+#        format = 'JPEG',
+        options = {
+            'quality': 90,
+            'progressive':True,
+        }
+    )
+    x650 = ImageSpecField( [
+            Adjust( contrast = 1.2, sharpness = 1.1 ),
+            ResizeToFit( 650, 650 )
+        ],
+        image_field = 'image',
+#        format = 'JPEG',
+        options = {
+            'quality': 90,
+            'progressive':True,
+        }
+    )
+    description = models.CharField( max_length = 200, blank = True, )
+
+    class Meta:
+        abstract = True
+
