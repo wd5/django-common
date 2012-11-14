@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from mptt.admin import MPTTModelAdmin
 
-class CommonCategooryAdmin(MPTTModelAdmin):
+class CommonCategoryAdmin( MPTTModelAdmin ):
     list_display = ( 'title', )
     search_fields = ( 'title', )
 
