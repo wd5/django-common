@@ -22,10 +22,12 @@ if 'south' in settings.INSTALLED_APPS:
 class CommonCategory( MPTTModel ):
     title = models.CharField( max_length = 100 )
     parent = TreeForeignKey( 'self', null = True, blank = True, related_name = 'children' )
+    order = models.IntegerField( blank = True, default = 999, db_index = True )
 #    order = models.IntegerField( default = 99, db_index = True )
 
     class Meta:
         abstract = True
+#        ordering = ['order', 'title']
 
     class MPTTMeta:
         order_insertion_by = ['title']
