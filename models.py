@@ -8,7 +8,7 @@ from tinymce import models as tinymce_models
 from slugify import slugify
 from tagging.fields import TagField
 from tagging.models import Tag
-from urlparse import urlparse
+#from urlparse import urlparse
 
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill, Adjust, SmartResize, ResizeToFit
@@ -22,8 +22,6 @@ if 'south' in settings.INSTALLED_APPS:
 class CommonCategory( MPTTModel ):
     title = models.CharField( max_length = 100 )
     parent = TreeForeignKey( 'self', null = True, blank = True, related_name = 'children' )
-    order = models.IntegerField( blank = True, default = 999, db_index = True )
-#    order = models.IntegerField( default = 99, db_index = True )
 
     class Meta:
         abstract = True
@@ -45,7 +43,6 @@ class CommonPost( models.Model ):
     date_add = models.DateTimeField( auto_now_add = True )
     date_edit = models.DateTimeField( auto_now = True )
     status = models.CharField( max_length = 15, choices = settings.STATUS_CHOICES, default = 'active', db_index = True )
-    source = models.URLField( blank = True, null = True )
     tags = TagField()
 
     class Meta:
@@ -67,9 +64,9 @@ class CommonPost( models.Model ):
 
         return ret
 
-    def hostname( self ):
-        o = urlparse( self.source )
-        return o.hostname
+#    def hostname( self ):
+#        o = urlparse( self.source )
+#        return o.hostname
 
 
 class CommonPostImage( models.Model ):

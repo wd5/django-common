@@ -8,7 +8,7 @@ class CommonPostEditForm( forms.ModelForm ):
 
     class Meta:
         abstract = True
-        fields = ( 'title', 'content', 'category', 'source', 'tags', )
+        fields = ( 'title', 'content', 'category', 'tags', )
         exclude = ( 'status', 'author', )
 
     class Media:
