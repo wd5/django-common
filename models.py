@@ -21,7 +21,12 @@ if 'south' in settings.INSTALLED_APPS:
 
 class CommonCategory( MPTTModel ):
     title = models.CharField( max_length = 100 )
-    parent = TreeForeignKey( 'self', null = True, blank = True, related_name = 'children' )
+    parent = TreeForeignKey( 
+        'self',
+        null = True,
+        blank = True,
+        related_name = "%(app_label)s_%(class)s_related",
+    )
 
     class Meta:
         abstract = True
