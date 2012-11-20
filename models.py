@@ -69,11 +69,6 @@ class CommonPost( models.Model ):
 
         return ret
 
-#    def hostname( self ):
-#        o = urlparse( self.source )
-#        return o.hostname
-
-
 class CommonPostImage( models.Model ):
     icon = ImageSpecField( [
             Adjust( contrast = 1.2, sharpness = 1.1 ),
