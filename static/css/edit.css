@@ -10,6 +10,27 @@
 		width:600px;
 	}
 
-    #post-images img{
+    /*#post-images img{
         margin:0px 5px 5px 0px;
-    }
+    }*/
+   
+   #post-images ul.thumbnails li{
+       width:145px;
+       height:145px;
+       position:relative;
+   }
+   
+   #post-images .image-link-block{
+       position:absolute;
+       top:0px;
+       left:0px;
+       background-color:rgba(101, 101, 101, 0.5 );
+       width:145px;
+       height:145px;
+       text-align:center;
+       border-radius:4px;
+   }
+   #post-images .image-link-block a{
+       display:block;
+       margin:7px 12px;
+   }
