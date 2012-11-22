@@ -4,7 +4,6 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class CommonPostEditForm( forms.ModelForm ):
-#    content =
 
     class Meta:
         abstract = True

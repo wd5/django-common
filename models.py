@@ -52,7 +52,7 @@ class CommonPost( models.Model ):
 
     class Meta:
         abstract = True
-        ordering = ['pk']
+        ordering = ['-pk']
 
     def __unicode__( self ):
         return self.title
