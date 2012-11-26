@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <title>{% block title %}{% endblock %} ZokiGuide.com</title>
+    <title>{% block title %}{% endblock %} Zoki Guide</title>
 
     {% load compress %}
 
@@ -99,15 +99,24 @@
 			<header class="jumbotron subhead" id="overview">
 				<div class="container">
 					<div class="clearfix">
-						<h1 id="site-name">Zokiguide</h1>
-						<h2 id="module-name">{{ module_name }}</h2>
-						<p class="lead">{{ module_description }}</p>
+						<h1 id="site-name">Zoki Guide</h1>
+						<h2 id="module-name"> {% block module_name %}{% endblock %}</h2>
+						<p class="lead">{% block module_description %}{% endblock %}</p>
 						{% if user.is_authenticated %}
 							<div class="module-actions-block">
 								{% block module_actions %}{% endblock %}
 							</div>
 						{% endif %}
 					</div>
+
+
+					{% get_language_info for LANGUAGE_CODE as lang %}
+
+					Language code: {{ lang.code }}<br />
+					Name of language: {{ lang.name_local }}<br />
+					Name in English: {{ lang.name }}<br />
+					Bi-directional: {{ lang.bidi }}
+
 					<div class="subnav">
 						<ul class="nav nav-pills">
 						    <li><a href="/">{% trans 'Main' %}</a></li>
