@@ -130,18 +130,7 @@
             {% block header %}{% endblock %}
             
             {% if settings.IN_PRODUCTION %}
-				<section class="container">
-					<div class="google-hor-ads">
-						<script type="text/javascript">
-							google_ad_client = "ca-pub-6824831003901331";
-							/* ZokiGuide */
-							google_ad_slot = "4547501137";
-							google_ad_width = 728;
-							google_ad_height = 90;
-						</script>
-						<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-					</div>
-				</section>
+				{% include 'common/google-adsense.html' %}
 			{% endif %}
 
             {% block wrapper %}
@@ -149,18 +138,7 @@
             {% endblock %}
             
             {% if settings.IN_PRODUCTION %}
-				<section class="container">
-					<div class="google-hor-ads bottom">
-						<script type="text/javascript">
-							google_ad_client = "ca-pub-6824831003901331";
-							/* ZokiGuide */
-							google_ad_slot = "4547501137";
-							google_ad_width = 728;
-							google_ad_height = 90;
-						</script>
-						<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-					</div>
-				</section>
+				{% include 'common/google-adsense.html' %}
 			{% endif %}
 
         </div>
