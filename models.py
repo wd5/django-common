@@ -114,6 +114,16 @@ class CommonPostImage( models.Model ):
             'progressive':True,
         }
     )
+    x138 = ImageSpecField( [
+            Adjust( contrast = 1.2, sharpness = 1.1 ),
+            ResizeToFit( 138, 138 )
+        ],
+        image_field = 'image',
+        options = {
+            'quality': 90,
+            'progressive':True,
+        }
+    )
     x150 = ImageSpecField( [
             Adjust( contrast = 1.2, sharpness = 1.1 ),
             ResizeToFit( 150, 150 )
