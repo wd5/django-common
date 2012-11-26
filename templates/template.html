@@ -7,6 +7,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="ru"> <!--<![endif]-->
 <head>
     {% load staticfiles %}
+    {% load i18n %}
 
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -109,19 +110,19 @@
 					</div>
 					<div class="subnav">
 						<ul class="nav nav-pills">
-						    <li><a href="/">Main</a></li>
-							<li><a href="{% url catalog-home %}">Catalog</a></li>
-							<li><a href="{% url guidebook-home %}">Guidebook</a></li>
-                            <li><a href="#">events</a></li>
-                            <li><a href="#">tours</a></li>
-                            <li><a href="#">travelmate</a></li>
-                            <li><a href="{% url blogs-home %}">Blogs</a></li>
-                            <li><a href="#">galleries</a></li>
-                            <li><a href="#">calendar</a></li>
-                            <li><a href="{% url forum-home %}">Forum</a></li>
-                            <li><a href="#">Q&A</a></li>
-                            <li><a href="{% url classifieds-home %}">Classifieds</a></li>
-							<li><a href="{% url bookmarks-home %}">Online resources</a></li>
+						    <li><a href="/">{% trans 'Main' %}</a></li>
+							<li><a href="{% url catalog-home %}">{% trans 'Catalog' %}</a></li>
+							<li><a href="{% url guidebook-home %}">{% trans 'Guidebook' %}</a></li>
+                            <li><a href="#">{% trans 'Events' %}</a></li>
+                            <li><a href="#">{% trans 'Tours' %}</a></li>
+                            <li><a href="#">{% trans 'Travelmate' %}</a></li>
+                            <li><a href="{% url blogs-home %}">{% trans 'Blogs' %}</a></li>
+                            <li><a href="#">{% trans 'Galleries' %}</a></li>
+                            <li><a href="#">{% trans 'Calendar' %}</a></li>
+                            <li><a href="{% url forum-home %}">{% trans 'Forum' %}</a></li>
+                            <!-- <li><a href="#">Q&A</a></li> -->
+                            <li><a href="{% url classifieds-home %}">{% trans 'Classifieds' %}</a></li>
+							<li><a href="{% url bookmarks-home %}">{% trans 'Online resources' %}</a></li>
 						</ul>
 					</div>
 				</div>

@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Dan Tyan <dan.tyan@gmail.com>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-26 18:47+0600\n"
+"PO-Revision-Date: 2012-11-26 18:51+0600\n"
+"Last-Translator: Dan Tyan <dan.tyan@gmail.com>\n"
+"Language-Team: Russian <>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 2.91.5\n"
+
+#: templates/template.html:114
+msgid "Catalog"
+msgstr "Каталог"
+
+#: templates/template.html:115
+msgid "Guidebook"
+msgstr "Путеводитель"
+
+#: templates/template.html:116
+msgid "Events"
+msgstr "События"
+
+#: templates/template.html:117
+msgid "Tours"
+msgstr "Туры"
+
+#: templates/template.html:118
+msgid "Travelmate"
+msgstr ""
+
+#: templates/template.html:119
+msgid "Blogs"
+msgstr "Блоги"
+
+#: templates/template.html:120
+msgid "Galleries"
+msgstr "Галлереи"
+
+#: templates/template.html:121
+msgid "Calendar"
+msgstr "Календарь"
+
+#: templates/template.html:122
+msgid "Forum"
+msgstr "Форум"
+
+#: templates/template.html:124
+msgid "Classifieds"
+msgstr "Объявления"
+
+#: templates/template.html:125
+msgid "Online resources"
+msgstr "Веб-ресурсы"
