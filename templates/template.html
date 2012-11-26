@@ -48,7 +48,7 @@
       	</script>
     
         {% if settings.IN_PRODUCTION %}
-            <script type="text/javascript" src="{{ STATIC_URL }}js/google-analytics.js"></script>
+            {% include 'common/google-analytics.html' %}            
         {% endif %}
     
         <script src="{% static 'js/common.js' %}"></script>
