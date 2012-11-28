@@ -57,7 +57,7 @@
                                             return $('<a class="btn" />')
                                                 .text('insert')
                                                 .on('click', function(){
-                                                    tinymce.execCommand('mceInsertContent', false, '<a href="'+self.data('x650')+'" rel="lightbox[lightbox-'+self.data('post_id')+']" title="' + self.data('title') + '"><img src="'+self.data('x250')+'" alt="" /></a>');
+                                                    tinymce.execCommand('mceInsertContent', false, '<a href="'+self.data('x650')+'" rel="single"  class="pirobox" title="' + self.data('title') + '"><img src="'+self.data('x250')+'" alt="" /></a>&nbsp;&nbsp;&nbsp;');
                                                 });
                                         })
                                         .append(function(){

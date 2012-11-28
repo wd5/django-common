@@ -206,7 +206,7 @@ p
 	border: 1px solid #e6e6e6;
 	padding: 10px;
 }
-#categories a
+/*#categories a
 {
 	outline: none;
 	position: relative;
@@ -222,7 +222,7 @@ p
 #categories a.current
 {
 	font-weight: bold;
-}
+}*/
 #countries a
 {
 	outline: none;
@@ -293,7 +293,7 @@ p
 	position: relative;
 }
 
-
+/*
 	#categories ul,
 	#countries ul
 	{
@@ -303,4 +303,4 @@ p
 	#countries ul li
 	{
 		list-style:none;	
-	}
+	}*/
