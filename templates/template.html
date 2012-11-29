@@ -114,16 +114,19 @@
 						    <li><a href="/">{% trans 'Main' %}</a></li>
 							<li><a href="{% url catalog-home %}">{% trans 'Catalog' %}</a></li>
 							<li><a href="{% url guidebook-home %}">{% trans 'Guidebook' %}</a></li>
+                            <li><a href="{% url blogs-home %}">{% trans 'Blogs' %}</a></li>
+                            <li><a href="{% url classifieds-home %}">{% trans 'Classifieds' %}</a></li>
+                            <li><a href="{% url bookmarks-home %}">{% trans 'Online resources' %}</a></li>
+                            {% if not settings.IN_PRODUCTION %}
                             <li><a href="#">{% trans 'Events' %}</a></li>
                             <li><a href="#">{% trans 'Tours' %}</a></li>
                             <li><a href="#">{% trans 'Travelmate' %}</a></li>
-                            <li><a href="{% url blogs-home %}">{% trans 'Blogs' %}</a></li>
+                            
                             <li><a href="#">{% trans 'Galleries' %}</a></li>
                             <li><a href="#">{% trans 'Calendar' %}</a></li>
                             <li><a href="{% url forum-home %}">{% trans 'Forum' %}</a></li>
                             <!-- <li><a href="#">Q&A</a></li> -->
-                            <li><a href="{% url classifieds-home %}">{% trans 'Classifieds' %}</a></li>
-							<li><a href="{% url bookmarks-home %}">{% trans 'Online resources' %}</a></li>
+                            {% endif %}
 						</ul>
 					</div>
 				</div>

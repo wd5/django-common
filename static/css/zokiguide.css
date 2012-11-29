@@ -17,6 +17,7 @@ p
 {
 	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Geneva, Sans-serif;
 }
+
 #site-name
 {
 	float: left;
@@ -248,16 +249,16 @@ p
 {
 	display: none;
 }
-.google-hor-ads
-{
-	height: 90px;
-	margin-bottom: 10px;
-	text-align: center;
-	background-color: #FFFFFF;
-	border: 1px solid #E6E6E6;
-	border-radius: 5px;
-	padding: 10px;
-}
+    .google-hor-ads
+    {
+    	height: 90px;
+    	margin-top: 10px;
+    	text-align: center;
+    	background-color: #FFFFFF;
+    	border: 1px solid #E6E6E6;
+    	border-radius: 5px;
+    	padding: 10px;
+    }
 .google-hor-ads.bottom
 {
 	margin-top: 10px;
