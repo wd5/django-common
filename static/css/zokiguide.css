@@ -243,6 +243,9 @@
 		position: relative;
 	}
 	
+	.side-nav li{
+	    margin-bottom:3px;
+	}
 	.side-nav a{
 		border-radius: 3px;
 		outline: none;

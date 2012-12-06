@@ -117,6 +117,7 @@
                             <li><a href="{% url blogs-home %}">{% trans 'Blogs' %}</a></li>
                             <li><a href="{% url classifieds-home %}">{% trans 'Classifieds' %}</a></li>
                             <li><a href="{% url bookmarks-home %}">{% trans 'Online resources' %}</a></li>
+                            {% comment %}
                             {% if not settings.IN_PRODUCTION %}
                             <li><a href="#">{% trans 'Events' %}</a></li>
                             <li><a href="#">{% trans 'Tours' %}</a></li>
@@ -127,6 +128,7 @@
                             <li><a href="{% url forum-home %}">{% trans 'Forum' %}</a></li>
                             <!-- <li><a href="#">Q&A</a></li> -->
                             {% endif %}
+                            {% endcomment %}
 						</ul>
 					</div>
 				</div>
@@ -143,7 +145,7 @@
             {% endblock %}
             
             {% if settings.IN_PRODUCTION %}
-				{% include 'common/google-adsense.html' %}
+				{% include 'common/google-adsense.html' with class=bottom %}
 			{% endif %}
 
         </div>
@@ -152,7 +154,7 @@
     {% block footer %}{% endblock %}
 
 
-    {% compress js %}    
+    {% compress js %}
         <script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/libs/bootstrap.min.js' %}"></script>        
         <script type="text/javascript" src="{% static 'js/zokiguide.js' %}"></script>
@@ -162,11 +164,5 @@
     {% if settings.IN_PRODUCTION %}
         {% block yandex_metrika %}{% endblock %}
     {% endif %}
-    
-     {% comment %}
-    	{% if not settings.IN_PRODUCTION %}
-        	<pre>{% debug %}</pre>
-        {% endif %}
-     {% endcomment %}
 </body>
 </html>

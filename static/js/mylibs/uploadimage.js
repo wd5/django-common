@@ -25,6 +25,7 @@
 		, bindFormActions: function(){
 			$('#image-upload-form').ajaxForm({
 				success:function(data){
+					self.log(data)
                 	$('#post-images .thumbnails').prepend(function(){
                 		return $('<li/>')
                 			.data('id', data.image.id)
@@ -38,7 +39,7 @@
                 					.append(function(){
                 						return $('<img/>')
                 							.attr('src', data.image.x138);
-                						});
+                					});
                 				});
                         });
                     }
@@ -68,7 +69,7 @@
             								.on('click', function(){
             									$.post( self.settings.url.primary, {
             										post_id: self.settings.post_id
-            										, image_id: self.data('id')
+            										, image_id: $this.data('id')
             										, csrfmiddlewaretoken: self.settings.csrf_token
             									}, function(data){});
             								});
@@ -83,6 +84,7 @@
             			});
             	})
             	.live('mouseleave', function(){
+            		var $this = $(this);
             		if( $('.image-link-block', $this).size() )
             		{
             			$('.image-link-block', $this).remove();
