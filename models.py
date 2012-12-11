@@ -1,14 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils.html import strip_tags
 from django.conf import settings
+
+from django.utils.html import strip_tags
+from django.utils.translation import ugettext_lazy as _
 
 from mptt.models import MPTTModel, TreeForeignKey
 from tinymce import models as tinymce_models
 from slugify import slugify
 from tagging.fields import TagField
 from tagging.models import Tag
-#from urlparse import urlparse
+# from urlparse import urlparse
 
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill, Adjust, SmartResize, ResizeToFit
@@ -20,7 +22,10 @@ if 'south' in settings.INSTALLED_APPS:
     add_introspection_rules( [], ["^tinymce\.models.\HTMLField"] )
 
 class CommonCategory( MPTTModel ):
-    title = models.CharField( max_length = 100 )
+    title = models.CharField( 
+        max_length = 100,
+        verbose_name = _( 'title' )
+    )
     parent = TreeForeignKey( 
         'self',
         null = True,
@@ -42,13 +47,33 @@ class CommonCategory( MPTTModel ):
         return slugify( self.title )
 
 class CommonPost( models.Model ):
-    title = models.CharField( max_length = 200 )
-    content = tinymce_models.HTMLField()
-    author = models.ForeignKey( User, related_name = "%(app_label)s_%(class)s_related" )
-    date_add = models.DateTimeField( auto_now_add = True )
-    date_edit = models.DateTimeField( auto_now = True )
-    status = models.CharField( max_length = 15, choices = settings.STATUS_CHOICES, default = 'active', db_index = True )
-    tags = TagField()
+    title = models.CharField( 
+        max_length = 200,
+        verbose_name = _( 'title' )
+    )
+    content = tinymce_models.HTMLField( 
+        verbose_name = _( 'content' )
+    )
+    author = models.ForeignKey( 
+        User,
+        related_name = "%(app_label)s_%(class)s_related",
+        verbose_name = _( 'author' )
+    )
+    date_add = models.DateTimeField( 
+        auto_now_add = True
+    )
+    date_edit = models.DateTimeField( 
+        auto_now = True
+    )
+    status = models.CharField( 
+        max_length = 15,
+        choices = settings.STATUS_CHOICES,
+        default = 'active',
+        db_index = True
+    )
+    tags = TagField( 
+        verbose_name = _( 'tags' )
+    )
 
     class Meta:
         abstract = True

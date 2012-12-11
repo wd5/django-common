@@ -19,43 +19,43 @@
     {% compress css %}
         <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
         <link rel="stylesheet" href="{% static 'css/bootstrap-responsive.css' %}">
-    
+
         <link rel="stylesheet" href="{% static 'css/common.css' %}">
-    
+
         <link rel="stylesheet" href="{% static 'css/zokiguide.css' %}">
         {% block module_style %}{% endblock %}
         {% block template_style %}{% endblock %}
         {% block custom_css %}{% endblock %}
     {% endcompress %}
 
-    
+
 
     {% if settings.IN_PRODUCTION %}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     {% else %}
         <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
     {% endif %}
-    
+
     {% compress js %}
-        <script src="{% static 'js/libs/modernizr-2.6.2.min.js' %}"></script>        
-    
+        <script src="{% static 'js/libs/modernizr-2.6.2.min.js' %}"></script>
+
         <script>window.jQuery || document.write('<scr'+'ipt src="{% static 'js/jquery.min.js' %}"><\/scr'+'ipt>')</script>
-        <script>      	
+        <script>
       		var django = grp = {
     			"jQuery": jQuery.noConflict(true)
     		};
     		var jQuery = django.jQuery;
     		var $ = jQuery;
       	</script>
-    
+
         {% if settings.IN_PRODUCTION %}
-            {% include 'common/google-analytics.html' %}            
+            {% include 'common/google-analytics.html' %}
         {% endif %}
-    
+
         <script src="{% static 'js/common.js' %}"></script>
-    
+
         {% block custom_js %}{% endblock %}
-        
+
     {% endcompress %}
     <meta name="description" content="{% block meta_description %}{{ data.page.meta.description }}{% endblock %}">
     <meta name="keywords" content="{% block meta_keywords %}{{ data.page.meta.keywords }}{% endblock %}">
@@ -87,9 +87,6 @@
 						<li class="text-bold"><a href="/accounts/signup/">join</a></li>
 					{% endif %}
 				</ul>
-				{#<form class="navbar-search pull-right">#}
-					{#<input type="text" class="search-query" placeholder="Search">#}
-				{#</form>#}
 			</div>
 		</div>
 	</div>
@@ -122,7 +119,7 @@
                             <li><a href="#">{% trans 'Events' %}</a></li>
                             <li><a href="#">{% trans 'Tours' %}</a></li>
                             <li><a href="#">{% trans 'Travelmate' %}</a></li>
-                            
+
                             <li><a href="#">{% trans 'Galleries' %}</a></li>
                             <li><a href="#">{% trans 'Calendar' %}</a></li>
                             <li><a href="{% url forum-home %}">{% trans 'Forum' %}</a></li>
@@ -133,7 +130,7 @@
 					</div>
 				</div>
 			</header>
-			
+
             {% block header %}{% endblock %}
 
 			{% include 'common/google-adsense.html' %}
@@ -153,7 +150,7 @@
 
     {% compress js %}
         <script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/libs/bootstrap.min.js' %}"></script>        
+        <script type="text/javascript" src="{% static 'js/libs/bootstrap.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/zokiguide.js' %}"></script>
         {% block footer_code %}{% endblock %}
     {% endcompress %}
