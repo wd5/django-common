@@ -197,3 +197,26 @@ class CommonPostImage( models.Model ):
     class Meta:
         abstract = True
 
+
+class CommonPostComment(MPTTModel):
+    parent = TreeForeignKey(
+        'self',
+        null = True,
+        blank = True,
+        related_name = "%(app_label)s_%(class)s_related",
+    )
+    content = models.TextField()
+    author = models.ForeignKey(
+        User,
+        related_name = "%(app_label)s_%(class)s_related",
+        verbose_name = _( 'author' )
+    )
+    date_add = models.DateTimeField(
+        auto_now_add = True
+    )
+
+    class Meta:
+        abstract = True
+
+    class MPTTMeta:
+        order_insertion_by = ['id']

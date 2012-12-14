@@ -21,3 +21,7 @@ class CommonPostEditForm( forms.ModelForm ):
         js = ( 
             '/admin/jsi18n/',
         )
+
+class CommonPostCommentForm( forms.ModelForm ):
+     class Meta:
+         abstract = True
