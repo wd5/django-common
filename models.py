@@ -54,7 +54,7 @@ class CommonPost( models.Model ):
     content = tinymce_models.HTMLField( 
         verbose_name = _( 'content' )
     )
-    author = models.ForeignKey( 
+    author = models.ForeignKey(
         User,
         related_name = "%(app_label)s_%(class)s_related",
         verbose_name = _( 'author' )
