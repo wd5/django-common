@@ -156,7 +156,7 @@
     {% endcompress %}
 
     {% if settings.IN_PRODUCTION %}
-        {% block yandex_metrika %}{% endblock %}
+        {% include 'common/yandex-metrika.html' %}
     {% endif %}
 </body>
 </html>
