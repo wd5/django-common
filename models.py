@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
 
+from django.db.models.signals import post_save
+
 from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
 
@@ -11,6 +13,8 @@ from slugify import slugify
 from tagging.fields import TagField
 from tagging.models import Tag
 # from urlparse import urlparse
+
+from common.signals import ping_google
 
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill, Adjust, SmartResize, ResizeToFit
@@ -220,3 +224,6 @@ class CommonPostComment(MPTTModel):
 
     class MPTTMeta:
         order_insertion_by = ['id']
+
+
+post_save.connect(ping_google)
