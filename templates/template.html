@@ -4,7 +4,7 @@
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="{{ LANGUAGE_CODE }}"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="{{ LANGUAGE_CODE }}"> <![endif]-->
 <!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="ru"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="{{ LANGUAGE_CODE }}"> <!--<![endif]-->
 <head>
     {% load staticfiles %}
     {% load i18n %}
@@ -57,6 +57,7 @@
         {% block custom_js %}{% endblock %}
 
     {% endcompress %}
+
     <meta name="description" content="{% block meta_description %}{{ data.page.meta.description }}{% endblock %}">
     <meta name="keywords" content="{% block meta_keywords %}{{ data.page.meta.keywords }}{% endblock %}">
 
@@ -78,19 +79,33 @@
     <div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
+
 				<ul class="nav nav-pills">
+
 					{% if user.is_authenticated %}
-						<li>Hi <strong>{{ user.username }}</strong></li>
-						<li><a href="/accounts/logout/">logout</a></li>
+{#						<li>Hi <strong>{{ user.username }}</strong></li>#}
+                        <li class="dropdown">
+                            <a class="dropdown-toggle"
+                               data-toggle="dropdown"
+                               href="#">
+                                Hi <strong>{{ user.username }}</strong>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'account:home' %}">{% trans 'account'|title %}</a></li>
+                                <!-- links -->
+                                <li class="divider"></li>
+                                <li><a href="{% url 'accounts:logout' %}">{% trans 'logout' %}</a></li>
+                            </ul>
+                        </li>
 					{% else %}
-						<li><a href="/accounts/login/">login</a></li>
-						<li class="text-bold"><a href="/accounts/signup/">join</a></li>
+                        <li><a href="{% url 'accounts:login' %}">{% trans 'login' %}</a></li>
+                        <li class="text-bold"><a href="{% url 'accounts:signup' %}">{% trans 'join' %}</a></li>
 					{% endif %}
 				</ul>
 			</div>
 		</div>
 	</div>
-
     <div id="wrapper">
         <div id="main">
 			<header class="jumbotron subhead" id="overview">
