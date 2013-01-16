@@ -14,7 +14,7 @@ from tagging.fields import TagField
 from tagging.models import Tag
 # from urlparse import urlparse
 
-from common.signals import ping_google
+#from common.signals import ping_google
 
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill, Adjust, SmartResize, ResizeToFit
@@ -226,4 +226,4 @@ class CommonPostComment(MPTTModel):
         order_insertion_by = ['id']
 
 
-post_save.connect(ping_google)
+#post_save.connect(ping_google)
