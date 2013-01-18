@@ -1,1 +1,14 @@
-server error
+{% extends 'template.html' %}
+
+{% block title %}Server error :({% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="content">
+            <h1>Server error <span>:(</span></h1>
+            <p>Sorry, but there is an error on this page.</p>
+            <p>Developers already know about this and do all to fix it.</p>
+        </div>
+    </div>
+{% endblock %}
